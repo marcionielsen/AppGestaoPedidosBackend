@@ -34,7 +34,7 @@ public class CategoriaService {
 		return categoria.orElseThrow(() -> new ObjetoNaoEncontradoException(id.toString(), Categoria.class.getName()));
 	}
 
-	public Page<Categoria> listPerPage(Integer numPage, Integer linesPage, String orderBy, String direction) {
+	public Page<Categoria> listPerPage(Integer numPage, Integer linesPage, String direction, String orderBy) {
 		PageRequest pageRequest = PageRequest.of(numPage, linesPage, Direction.valueOf(direction), orderBy);
 
 		return repo.findAll(pageRequest);

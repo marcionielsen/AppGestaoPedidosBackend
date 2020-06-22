@@ -21,14 +21,7 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService categoriaService;
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Categoria> findById(@PathVariable Long id) {
-
-		Categoria categoria = categoriaService.findById(id);
-		return ResponseEntity.ok().body(categoria);
-	}
-
-	@RequestMapping(value = "/listar", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<CategoriaDTO>> listAll() {
 
 		List<Categoria> lista = categoriaService.listAll();
@@ -38,6 +31,13 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(listaDTO);
 	}
 	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Categoria> findById(@PathVariable Long id) {
+
+		Categoria categoria = categoriaService.findById(id);
+		return ResponseEntity.ok().body(categoria);
+	}
+
 }
 
 //@GetMapping()
@@ -57,3 +57,13 @@ public class CategoriaResource {
 //			
 //	return retorno;
 //}
+
+/*
+  INSERT INTO CATEGORIAS (DS_CATEGORIA) VALUES ("Lanches");
+  INSERT INTO CATEGORIAS (DS_CATEGORIA) VALUES ("Pizzas");
+  INSERT INTO CATEGORIAS (DS_CATEGORIA) VALUES ("Refrigerantes");
+  INSERT INTO CATEGORIAS (DS_CATEGORIA) VALUES ("Porções");
+   
+  
+ */
+
